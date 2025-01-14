@@ -1,12 +1,24 @@
-// Fetch and populate the dropdown with JSON files
+// List of JSON files (representing countries)
+const jsonFiles = [
+    'Australia.json',
+    'United Arab Emirates.json',
+    'United Kingdom.json',
+    'India.json',
+    'Japan.json',
+    'United States.json',
+    'Netherlands.json',
+    'Singapore.json'
+];
+
+// Populate the dropdown with country names (derived from file names)
 document.addEventListener('DOMContentLoaded', () => {
     const dropdown = document.getElementById('countryDropdown');
-    const jsonFiles = ['country1.json', 'country2.json', 'country3.json']; // Update with your actual JSON file names
 
     jsonFiles.forEach(file => {
+        const countryName = file.replace('.json', ''); // Extract the country name
         const option = document.createElement('option');
-        option.value = file;
-        option.textContent = file.replace('.json', '');
+        option.value = file; // Keep the file name as the value
+        option.textContent = countryName; // Display the country name
         dropdown.appendChild(option);
     });
 
