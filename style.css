@@ -1,65 +1,111 @@
-/* General Reset */
+/* General body styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f9;
-}
-
-/* Header */
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
+    background-color: #f4f7fc;
+    color: #333;
     text-align: center;
 }
 
-/* Main Content */
-.container {
-    padding: 20px;
-    max-width: 600px;
-    margin: 20px auto;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Header styling */
+h1 {
+    margin-top: 50px;
+    color: #4CAF50;
+    font-size: 2.5em;
 }
 
-/* Dropdown and Button */
+/* Dropdown container */
 label {
-    display: block;
     font-size: 1.2em;
-    margin-bottom: 8px;
+    margin-top: 20px;
+    display: block;
+    color: #555;
 }
 
-select, button {
-    width: 100%;
+/* Dropdown styling */
+select {
     padding: 10px;
-    margin-bottom: 20px;
-    font-size: 1em;
+    margin-top: 10px;
+    font-size: 1.1em;
+    width: 250px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
 }
 
+/* Styling for the data display area */
+h2 {
+    margin-top: 40px;
+    font-size: 2em;
+    color: #333;
+}
+
+/* Display area for JSON data */
+pre {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin: 20px auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 1em;
+    max-height: 400px;
+    overflow-y: auto;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+/* Button styling */
 button {
     background-color: #4CAF50;
     color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
     cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
+/* Button hover effect */
+button:hover {
+    background-color: #45a049;
+}
+
+/* Disabled button */
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;
 }
 
-/* JSON Display */
-.json-display {
-    background-color: #f8f8f8;
-    padding: 15px;
-    border-radius: 4px;
-    overflow: auto;
-    max-height: 400px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    font-family: monospace;
-    border: 1px solid #ddd;
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    select {
+        width: 80%;
+    }
+
+    pre {
+        width: 100%;
+        font-size: 0.9em;
+    }
+
+    button {
+        width: 100%;
+        font-size: 1.1em;
+    }
 }
