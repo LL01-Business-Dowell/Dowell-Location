@@ -7,19 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Country Data Viewer</h1>
-    </header>
-    <main>
-        <div class="container">
-            <label for="countryDropdown">Select a Country:</label>
-            <select id="countryDropdown">
-                <option value="" disabled selected>Choose a country</option>
-            </select>
-            <button id="downloadCsv" disabled>Download as CSV</button>
-            <pre id="jsonDisplay" class="json-display"></pre>
-        </div>
-    </main>
+    <h1>Country Data Viewer</h1>
+
+    <!-- Dropdown to select country -->
+    <label for="countryDropdown">Select a Country:</label>
+    <select id="countryDropdown">
+        <option value="" disabled selected>Select a country</option>
+    </select>
+
+    <!-- Display JSON data -->
+    <h2>Data:</h2>
+    <pre id="jsonDisplay">Select a country to view its data.</pre>
+
+    <!-- Button to download CSV -->
+    <button id="downloadCsv" disabled>Download as CSV</button>
+
     <script src="script.js"></script>
 </body>
 </html>
