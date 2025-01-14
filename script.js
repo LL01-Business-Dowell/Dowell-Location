@@ -36,7 +36,7 @@ function handleCountrySelection(event) {
         .then(response => response.json())
         .then(data => {
             // Filter data with Population >= 100000
-            const filteredData = data.filter(item => item.Population >= 100000);
+            const filteredData = data.filter(item => parseInt(item.Population) >= 100000);
 
             // Show filtered JSON data
             jsonDisplay.textContent = JSON.stringify(filteredData, null, 2);
