@@ -55,10 +55,33 @@ function handleCountrySelection(event) {
         });
 }
 
-// Convert JSON data to CSV
-function convertJsonToCsv(json) {
-    const rows = [Object.keys(json[0]).join(','), ...json.map(obj => Object.values(obj).join(','))];
-    return rows.join('\n');
+// Function to convert JSON data to CSV format
+function convertJsonToCsv(jsonData) {
+    const rows = [];
+
+    // Check if the JSON data is an array and has at least one object
+    if (!Array.isArray(jsonData) || jsonData.length === 0) {
+        return '';
+    }
+
+    // Extract headers (keys) from the first object in the JSON array
+    const headers = Object.keys(jsonData[0]);
+    rows.push(headers.join(',')); // Add headers to the CSV
+
+    // Process each object in the JSON array and create rows for CSV
+    jsonData.forEach(obj => {
+        const row = headers.map(field => {
+            let value = obj[field] || ''; 
+            
+            // Handle special characters by ensuring proper escaping
+            value = `"${value.replace(/"/g, '""')}"`; // Escape double quotes
+            return value;
+        });
+
+        rows.push(row.join(',')); // Add row to CSV
+    });
+
+    return rows.join('\n'); // Join all rows with new line characters
 }
 
 // Download a file with the specified content
