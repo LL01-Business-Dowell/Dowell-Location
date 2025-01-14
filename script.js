@@ -35,13 +35,16 @@ function handleCountrySelection(event) {
     fetch(`jsondb/${selectedFile}`)
         .then(response => response.json())
         .then(data => {
-            // Show JSON data
-            jsonDisplay.textContent = JSON.stringify(data, null, 2);
+            // Filter data with Population >= 100000
+            const filteredData = data.filter(item => item.Population >= 100000);
+
+            // Show filtered JSON data
+            jsonDisplay.textContent = JSON.stringify(filteredData, null, 2);
 
             // Enable CSV download button
             downloadButton.disabled = false;
             downloadButton.onclick = () => {
-                const csv = convertJsonToCsv(data);
+                const csv = convertJsonToCsv(filteredData);
                 downloadFile(`${selectedFile.replace('.json', '')}.csv`, csv);
             };
         })
